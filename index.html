@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北歐縱走 14 天｜哥本哈根 → 極圈 → 羅浮敦 → 峽灣</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ice:#ECF1F4;
+    --fjord:#16293B;
+    --slate:#5B7185;
+    --rorbu:#A93B2C;
+    --rorbu-soft:#F6E7E3;
+    --aurora:#1F8A6D;
+    --aurora-soft:#E2F1EB;
+    --card:#FFFFFF;
+    --line:#C9D5DD;
+    --amber:#B07A22;
+    --amber-soft:#F7EEDD;
+    --dk:#C8102E;
+    --se:#FECC02;
+    --no:#00205B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans TC',sans-serif;
+    background:var(--ice);
+    color:var(--fjord);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-family:'Barlow Condensed',sans-serif;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(168deg,#0E1F30 0%,#16293B 55%,#1E3A50 100%);
+    color:#EAF2F7;
+    padding:56px 24px 130px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{ /* aurora sweep */
+    content:"";
+    position:absolute;inset:auto -20% -40% -20%;height:70%;
+    background:radial-gradient(ellipse at 30% 100%,rgba(46,158,123,.35),transparent 60%),
+               radial-gradient(ellipse at 75% 100%,rgba(76,140,190,.28),transparent 55%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+  .hero .eyebrow{
+    font-size:13px;letter-spacing:.35em;color:#8FB6C9;
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  .hero h1{
+    font-weight:900;font-size:clamp(30px,6.5vw,52px);
+    line-height:1.25;letter-spacing:.04em;
+  }
+  .hero h1 .lat{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    color:#67C6A3;font-size:.62em;vertical-align:.28em;margin-left:.4em;letter-spacing:.05em;
+  }
+  .hero .sub{margin-top:14px;color:#B9CDDA;font-size:15px;max-width:560px;}
+  .hero .route{
+    margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    font-size:14px;font-weight:500;color:#DDE9F0;
+  }
+  .route span.stop{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+    border-radius:999px;padding:4px 14px;}
+  .route span.arr{color:#67C6A3;font-family:'Barlow Condensed',sans-serif;font-size:16px;}
+
+  /* ---------- Stats strip ---------- */
+  .stats{
+    max-width:860px;margin:-72px auto 0;position:relative;z-index:2;
+    background:var(--card);border-radius:16px;
+    box-shadow:0 12px 34px rgba(22,41,59,.14);
+    display:grid;grid-template-columns:repeat(4,1fr);
+    padding:20px 8px;
+  }
+  .stat{text-align:center;padding:6px 4px;}
+  .stat b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:30px;color:var(--fjord);line-height:1.1;}
+  .stat small{color:var(--slate);font-size:12.5px;letter-spacing:.08em;}
+  @media(max-width:560px){
+    .stats{grid-template-columns:repeat(2,1fr);row-gap:14px;}
+  }
+
+  /* ---------- Timeline ---------- */
+  main{max-width:860px;margin:0 auto;padding:44px 20px 20px;}
+  .country{
+    display:flex;align-items:center;gap:12px;
+    margin:44px 0 22px;
+  }
+  .country:first-of-type{margin-top:8px;}
+  .country .flag{font-size:24px;}
+  .country h2{font-size:20px;font-weight:900;letter-spacing:.08em;}
+  .country .cline{flex:1;height:2px;border-radius:2px;}
+  .country small{color:var(--slate);font-size:13px;white-space:nowrap;}
+  .c-dk .cline{background:linear-gradient(90deg,var(--dk),transparent);}
+  .c-se .cline{background:linear-gradient(90deg,var(--se),transparent);}
+  .c-no .cline{background:linear-gradient(90deg,var(--no),transparent);}
+
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{ /* route spine */
+    content:"";position:absolute;left:22px;top:6px;bottom:6px;width:3px;
+    background:linear-gradient(var(--line),var(--line));
+    border-radius:3px;
+  }
+  .day{position:relative;margin-bottom:26px;}
+  .day .lat-tag{
+    position:absolute;left:-66px;top:2px;width:52px;text-align:center;
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    color:var(--slate);font-size:14px;line-height:1.2;
+  }
+  .day .lat-tag b{display:block;font-size:17px;color:var(--fjord);}
+  .day::before{ /* station dot */
+    content:"";position:absolute;left:-49px;top:8px;width:13px;height:13px;
+    border-radius:50%;background:var(--card);border:3.5px solid var(--fjord);
+  }
+  .day.dk::before{border-color:var(--dk);}
+  .day.se::before{border-color:#C9A400;}
+  .day.no::before{border-color:var(--no);}
+
+  .card{
+    background:var(--card);border-radius:14px;
+    padding:18px 20px 16px;
+    box-shadow:0 3px 14px rgba(22,41,59,.07);
+  }
+  .card .head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .card .d{
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;
+    letter-spacing:.02em;
+  }
+  .card .wd{color:var(--slate);font-size:13px;font-weight:500;}
+  .card .dayno{
+    margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    font-size:14px;color:var(--slate);letter-spacing:.14em;
+  }
+  .card h3{font-size:17px;font-weight:700;margin-bottom:8px;}
+  .card ul{list-style:none;font-size:14.5px;color:#33475A;}
+  .card ul li{padding:3px 0 3px 20px;position:relative;}
+  .card ul li::before{content:"";position:absolute;left:4px;top:13px;width:7px;height:7px;
+    border-radius:2px;background:var(--line);}
+  .t{
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15.5px;
+    background:var(--fjord);color:#EAF2F7;border-radius:6px;
+    padding:1px 7px;margin-right:5px;letter-spacing:.04em;white-space:nowrap;
+  }
+  .stay{
+    margin-top:11px;font-size:13px;color:var(--slate);
+    border-top:1px dashed var(--line);padding-top:9px;
+  }
+  .stay b{color:var(--fjord);}
+  .maps{margin-top:8px;display:flex;flex-direction:column;gap:6px;}
+  .map{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#F7FAFC;}
+  .map summary{
+    cursor:pointer;list-style:none;padding:6px 10px;font-size:12.5px;
+    color:var(--slate);font-weight:500;user-select:none;
+  }
+  .map summary::-webkit-details-marker{display:none;}
+  .map summary::marker{content:"";}
+  .map[open] summary{color:var(--fjord);border-bottom:1px solid var(--line);}
+  .map iframe{width:100%;height:210px;border:0;display:block;}
+  .map.hotel{border-color:#8FB6C9;background:#EEF5FA;}
+  .map.hotel summary{color:var(--fjord);font-weight:600;}
+  .map.pending{border-style:dashed;border-color:var(--amber);background:var(--amber-soft);}
+  .map.pending summary{color:#7A5517;}
+  .note{
+    margin-top:11px;border-radius:10px;padding:10px 13px;font-size:13.5px;line-height:1.65;
+  }
+  .note.warn{background:var(--rorbu-soft);color:#7C2A1E;}
+  .note.warn b{color:var(--rorbu);}
+  .note.tip{background:var(--amber-soft);color:#7A5517;}
+  .note.tip b{color:var(--amber);}
+  .note.ok{background:var(--aurora-soft);color:#175B47;}
+
+  /* ---------- Checklist ---------- */
+  .check{
+    max-width:860px;margin:20px auto 0;padding:0 20px;
+  }
+  .check-card{
+    background:var(--fjord);color:#E8F0F6;border-radius:16px;
+    padding:28px 26px;
+  }
+  .check-card h2{font-size:19px;font-weight:900;letter-spacing:.1em;margin-bottom:6px;}
+  .check-card p.lead{font-size:13.5px;color:#A9C1D1;margin-bottom:18px;}
+  .check-card ol{list-style:none;counter-reset:ck;}
+  .check-card ol li{
+    counter-increment:ck;position:relative;padding:12px 0 12px 46px;
+    border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;
+  }
+  .check-card ol li::before{
+    content:counter(ck,decimal-leading-zero);
+    position:absolute;left:0;top:12px;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;
+    color:#67C6A3;
+  }
+  .check-card ol li b{color:#FFFFFF;}
+
+  footer{
+    max-width:860px;margin:0 auto;padding:26px 20px 46px;
+    color:var(--slate);font-size:12.5px;text-align:center;
+  }
+  @media print{
+    .hero{padding-bottom:60px;}
+    .stats{box-shadow:none;border:1px solid var(--line);}
+    .card{box-shadow:none;border:1px solid var(--line);}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">2026.09.25 — 10.09 · Scandinavia</div>
+    <h1>北歐縱走 14 天<span class="lat">55°N → 68°N → 60°N</span></h1>
+    <p class="sub">從哥本哈根一路北上跨越北極圈，走國王小徑、搭極地列車、自駕羅浮敦群島，最後以挪威縮影的峽灣作結。</p>
+    <div class="route">
+      <span class="stop">🇩🇰 哥本哈根</span><span class="arr">➔</span>
+      <span class="stop">🇸🇪 斯德哥爾摩</span><span class="arr">➔</span>
+      <span class="stop">🇸🇪 Abisko 極圈</span><span class="arr">➔</span>
+      <span class="stop">🇳🇴 羅浮敦</span><span class="arr">➔</span>
+      <span class="stop">🇳🇴 卑爾根・峽灣</span><span class="arr">➔</span>
+      <span class="stop">🇳🇴 奧斯陸</span>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><b class="num">14</b><small>天</small></div>
+  <div class="stat"><b class="num">3</b><small>個國家</small></div>
+  <div class="stat"><b class="num">68.4°N</b><small>最北緯度</small></div>
+  <div class="stat"><b class="num">4</b><small>晚羅浮敦</small></div>
+</div>
+
+<main>
+
+  <!-- ========== 丹麥 ========== -->
+  <div class="country c-dk">
+    <span class="flag">🇩🇰</span><h2>丹麥</h2>
+    <div class="cline"></div><small>Day 1</small>
+  </div>
+  <div class="tl">
+
+    <div class="day dk">
+      <div class="lat-tag"><b class="num">55.7°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">9/25–26</span><span class="wd">五 → 六</span><span class="dayno">DAY 1</span></div>
+        <h3>台灣 ✈ 哥本哈根</h3>
+        <ul>
+          <li><span class="t">16:10</span>9/25 台灣起飛<div class="maps"><details class="map"><summary>📍 桃園國際機場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Taiwan+Taoyuan+International+Airport&output=embed" allowfullscreen title="桃園國際機場"></iframe></details></div></li>
+          <li><span class="t">07:25</span>抵達哥本哈根，<span class="t">09:25</span>出關<div class="maps"><details class="map"><summary>📍 哥本哈根機場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Copenhagen+Airport%2C+Denmark&output=embed" allowfullscreen title="哥本哈根機場"></iframe></details></div></li>
+          <li><span class="t">10:30</span>飯店寄行李後展開市區一日遊：新港彩色屋、小美人魚、玫瑰堡<div class="maps"><details class="map"><summary>📍 新港彩色屋 Nyhavn</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Nyhavn%2C+Copenhagen%2C+Denmark&output=embed" allowfullscreen title="新港彩色屋 Nyhavn"></iframe></details><details class="map"><summary>📍 小美人魚</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Den+Lille+Havfrue%2C+Copenhagen%2C+Denmark&output=embed" allowfullscreen title="小美人魚"></iframe></details><details class="map"><summary>📍 玫瑰堡</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Rosenborg+Slot%2C+Copenhagen%2C+Denmark&output=embed" allowfullscreen title="玫瑰堡"></iframe></details></div></li>
+        </ul>
+        <div class="stay">🛏 住宿：<b>哥本哈根</b>（1/1 晚）<div class="maps"><details class="map"><summary>📍 住宿：哥本哈根</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Copenhagen%2C+Denmark&output=embed" allowfullscreen title="住宿：哥本哈根"></iframe></details></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 瑞典 ========== -->
+  <div class="country c-se">
+    <span class="flag">🇸🇪</span><h2>瑞典</h2>
+    <div class="cline"></div><small>Day 2 – 5</small>
+  </div>
+  <div class="tl">
+
+    <div class="day se">
+      <div class="lat-tag"><b class="num">56.6°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">9/27</span><span class="wd">日</span><span class="dayno">DAY 2</span></div>
+        <h3>IKEA 發源地 Älmhult → 斯德哥爾摩</h3>
+        <ul>
+          <li>上午搭火車前往 Älmhult（約 2.5 小時），參觀 <b>IKEA 博物館</b>（週日 10:00–18:00）<div class="maps"><details class="map"><summary>📍 IKEA 博物館 Älmhult</summary><iframe loading="lazy" src="https://www.google.com/maps?q=IKEA+Museum%2C+%C3%84lmhult%2C+Sweden&output=embed" allowfullscreen title="IKEA 博物館 Älmhult"></iframe></details></div></li>
+          <li><span class="t">17:03</span>搭火車前往斯德哥爾摩</li>
+          <li><span class="t">20:30</span>抵達斯德哥爾摩</li>
+        </ul>
+        <div class="note tip"><b>提醒：</b>這天全程拖行李移動，請先確認 IKEA 博物館可否寄放大件行李，或改用 Älmhult 車站置物櫃。</div>
+        <div class="stay">🛏 住宿：<b>斯德哥爾摩</b>（1/2 晚）<div class="maps"><details class="map"><summary>📍 住宿：斯德哥爾摩</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Stockholm%2C+Sweden&output=embed" allowfullscreen title="住宿：斯德哥爾摩"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Hotel C Stockholm</summary><iframe loading="lazy" src="https://www.google.com/maps?q=59.3320483%2C18.0566454&output=embed" allowfullscreen title="Hotel C Stockholm"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day se">
+      <div class="lat-tag"><b class="num">59.3°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">9/28</span><span class="wd">一</span><span class="dayno">DAY 3</span></div>
+        <h3>斯德哥爾摩一整天</h3>
+        <ul>
+          <li>老城 Gamla Stan、皇宮、市政廳<div class="maps"><details class="map"><summary>📍 Gamla Stan 老城</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Gamla+Stan%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="Gamla Stan 老城"></iframe></details><details class="map"><summary>📍 皇宮 Royal Palace</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kungliga+slottet%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="皇宮 Royal Palace"></iframe></details><details class="map"><summary>📍 市政廳</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Stockholms+stadshus%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="市政廳"></iframe></details></div></li>
+          <li>推薦：瓦薩沉船博物館、地鐵藝術站<div class="maps"><details class="map"><summary>📍 瓦薩沉船博物館</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Vasamuseet%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="瓦薩沉船博物館"></iframe></details><details class="map"><summary>📍 地鐵藝術站 T-Centralen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=T-Centralen+metro+station%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="地鐵藝術站 T-Centralen"></iframe></details></div></li>
+        </ul>
+        <div class="stay">🛏 住宿：<b>斯德哥爾摩</b>（2/2 晚）<div class="maps"><details class="map"><summary>📍 住宿：斯德哥爾摩</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Stockholm%2C+Sweden&output=embed" allowfullscreen title="住宿：斯德哥爾摩"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Hotel C Stockholm</summary><iframe loading="lazy" src="https://www.google.com/maps?q=59.3320483%2C18.0566454&output=embed" allowfullscreen title="Hotel C Stockholm"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day se">
+      <div class="lat-tag"><b class="num">68.4°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">9/29</span><span class="wd">二</span><span class="dayno">DAY 4</span></div>
+        <h3>飛越北極圈：基律納 → Abisko</h3>
+        <ul>
+          <li><span class="t">08:30</span>ARN ✈ 基律納 KRN（約 1.5 小時，建議搭早班）<div class="maps"><details class="map"><summary>📍 基律納機場 Kiruna Airport</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kiruna+Airport%2C+Sweden&output=embed" allowfullscreen title="基律納機場 Kiruna Airport"></iframe></details></div></li>
+          <li>接駁車前往 Abisko（約 1.5 小時）<div class="maps"><details class="map"><summary>📍 Abisko</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Abisko%2C+Sweden&output=embed" allowfullscreen title="Abisko"></iframe></details></div></li>
+          <li>下午漫步<b>托訥湖 Torneträsk</b> 湖畔<div class="maps"><details class="map"><summary>📍 托訥湖 Torneträsk</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Tornetr%C3%A4sk%2C+Sweden&output=embed" allowfullscreen title="托訥湖 Torneträsk"></iframe></details></div></li>
+        </ul>
+        <div class="note warn"><b>⚠ 關鍵預訂：</b>91 號公車季末班次極少且不停機場，請改預訂 <b>Visit Abisko 機場直達接駁</b>（選航班落地 30 分鐘後的班次），飯店門口下車。</div>
+        <div class="stay">🛏 住宿：<b>Abisko</b>（1/2 晚）· 夜間留意極光 🌌<div class="maps"><details class="map"><summary>📍 住宿：Abisko</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Abisko%2C+Sweden&output=embed" allowfullscreen title="住宿：Abisko"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Abisko Guesthouse</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.3497222%2C18.8338889&output=embed" allowfullscreen title="Abisko Guesthouse"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day se">
+      <div class="lat-tag"><b class="num">68.4°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">9/30</span><span class="wd">三</span><span class="dayno">DAY 5</span></div>
+        <h3>國王小徑 Kungsleden 健行</h3>
+        <ul>
+          <li>從 STF Abisko Turiststation 出發走國王小徑北段<div class="maps"><details class="map"><summary>📍 STF Abisko Turiststation</summary><iframe loading="lazy" src="https://www.google.com/maps?q=STF+Abisko+Turiststation%2C+Abisko%2C+Sweden&output=embed" allowfullscreen title="STF Abisko Turiststation"></iframe></details><details class="map"><summary>📍 國王小徑 Kungsleden</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kungsleden%2C+Abisko%2C+Sweden&output=embed" allowfullscreen title="國王小徑 Kungsleden"></iframe></details></div></li>
+          <li>晚上可搭纜車上 Aurora Sky Station 追極光（視營運狀況）<div class="maps"><details class="map"><summary>📍 Aurora Sky Station</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Aurora+Sky+Station%2C+Abisko%2C+Sweden&output=embed" allowfullscreen title="Aurora Sky Station"></iframe></details></div></li>
+        </ul>
+        <div class="note tip"><b>裝備：</b>季末高處可能有初雪，請備防水登山鞋、保暖層與風雨衣。</div>
+        <div class="stay">🛏 住宿：<b>Abisko</b>（2/2 晚）<div class="maps"><details class="map"><summary>📍 住宿：Abisko</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Abisko%2C+Sweden&output=embed" allowfullscreen title="住宿：Abisko"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Abisko Guesthouse</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.3497222%2C18.8338889&output=embed" allowfullscreen title="Abisko Guesthouse"></iframe></details></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 挪威 ========== -->
+  <div class="country c-no">
+    <span class="flag">🇳🇴</span><h2>挪威</h2>
+    <div class="cline"></div><small>Day 6 – 14</small>
+  </div>
+  <div class="tl">
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">68.2°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/1</span><span class="wd">四</span><span class="dayno">DAY 6</span></div>
+        <h3>極地景觀列車 → 自駕進羅浮敦</h3>
+        <ul>
+          <li>搭乘極地景觀列車 Abisko → <b>Narvik</b>（約 1.5 小時，最美路段在挪威側）<div class="maps"><details class="map"><summary>📍 Narvik</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Narvik%2C+Norway&output=embed" allowfullscreen title="Narvik"></iframe></details><details class="map"><summary>📍 Narvik 火車站／租車點</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.4416002%2C17.4413025&output=embed" allowfullscreen title="Narvik 火車站／租車點"></iframe></details></div></li>
+          <li>Narvik 取租車，沿 E10 開往 Svolvær（約 3.5–4 小時）<div class="maps"><details class="map"><summary>📍 Svolvær</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Svolv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="Svolvær"></iframe></details></div></li>
+        </ul>
+        <div class="note warn"><b>⚠ 關鍵預訂：</b>Narvik 租車點少，且為「Narvik 取車、Evenes 機場還車」的甲租乙還，務必提前預訂並確認營業時間與異地還車費。10 月初約 18:30 天黑，中午取車勿拖延。</div>
+        <div class="stay">🛏 住宿：<b>羅浮敦</b>（1/4 晚）<div class="maps"><details class="map"><summary>📍 住宿：羅浮敦 Svolvær</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Svolv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="住宿：羅浮敦 Svolvær"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Lofoten Apartments</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.1976555%2C14.345363&output=embed" allowfullscreen title="Lofoten Apartments"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">68.2°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/2</span><span class="wd">五</span><span class="dayno">DAY 7</span></div>
+        <h3>羅浮敦中部</h3>
+        <ul>
+          <li>Henningsvær <b>海上足球場</b>（空拍名景）<div class="maps"><details class="map"><summary>📍 Henningsvær 海上足球場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Henningsv%C3%A6r+Stadion%2C+Henningsv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="Henningsvær 海上足球場"></iframe></details></div></li>
+          <li>中部漁村巡禮：Kabelvåg、Henningsvær 老街<div class="maps"><details class="map"><summary>📍 Kabelvåg</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kabelv%C3%A5g%2C+Norway&output=embed" allowfullscreen title="Kabelvåg"></iframe></details><details class="map"><summary>📍 Henningsvær 老街</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Henningsv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="Henningsvær 老街"></iframe></details></div></li>
+        </ul>
+        <div class="note tip"><b>待確認：</b>清單中 10/2 同時出現「Tobiasbrygga」與「Lofoten Rorbu Lodge（10/2–10/4）」兩筆訂房紀錄，日期重疊，請確認實際入住地點後再更新此欄位。</div>
+        <div class="stay">🛏 住宿：<b>羅浮敦</b>（2/4 晚）<div class="maps"><details class="map"><summary>📍 住宿：羅浮敦 Svolvær</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Svolv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="住宿：羅浮敦 Svolvær"></iframe></details><details class="map hotel pending"><summary>🏨 待確認：Tobiasbrygga（Unstad）</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.151284%2C14.203295&output=embed" allowfullscreen title="Tobiasbrygga（Unstad）"></iframe></details><details class="map hotel pending"><summary>🏨 待確認：Lofoten Rorbu Lodge（10/2–10/4）</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.1509575%2C13.5115641&output=embed" allowfullscreen title="Lofoten Rorbu Lodge（10/2–10/4）"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">67.9°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/3</span><span class="wd">六</span><span class="dayno">DAY 8</span></div>
+        <h3>群島最西端：Å 鎮與明信片景點</h3>
+        <ul>
+          <li><b>Å 鎮</b>——公路的盡頭、羅浮敦最西村落<div class="maps"><details class="map"><summary>📍 Å 鎮</summary><iframe loading="lazy" src="https://www.google.com/maps?q=%C3%85+i+Lofoten%2C+Norway&output=embed" allowfullscreen title="Å 鎮"></iframe></details></div></li>
+          <li>Reine / Hamnøy <b>明信片紅屋景點</b>、Sakrisøy 黃屋<div class="maps"><details class="map"><summary>📍 Reine</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Reine%2C+Norway&output=embed" allowfullscreen title="Reine"></iframe></details><details class="map"><summary>📍 Hamnøy</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Hamn%C3%B8y%2C+Norway&output=embed" allowfullscreen title="Hamnøy"></iframe></details><details class="map"><summary>📍 Sakrisøy</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Sakris%C3%B8y%2C+Norway&output=embed" allowfullscreen title="Sakrisøy"></iframe></details></div></li>
+        </ul>
+        <div class="stay">🛏 住宿：<b>羅浮敦</b>（3/4 晚）<div class="maps"><details class="map"><summary>📍 住宿：羅浮敦 Svolvær</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Svolv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="住宿：羅浮敦 Svolvær"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Lofoten Rorbu Lodge</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.1509575%2C13.5115641&output=embed" allowfullscreen title="Lofoten Rorbu Lodge"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">68.1°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/4</span><span class="wd">日</span><span class="dayno">DAY 9</span></div>
+        <h3>Ryten 健行 & Kvalvika 海灘</h3>
+        <ul>
+          <li>Fredvang 起登，山頂俯瞰 Kvalvika 海灘的碧綠海水<div class="maps"><details class="map"><summary>📍 Fredvang</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fredvang%2C+Norway&output=embed" allowfullscreen title="Fredvang"></iframe></details><details class="map"><summary>📍 Ryten</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Ryten%2C+Norway&output=embed" allowfullscreen title="Ryten"></iframe></details><details class="map"><summary>📍 Kvalvika 海灘</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kvalvika+Beach%2C+Norway&output=embed" allowfullscreen title="Kvalvika 海灘"></iframe></details></div></li>
+          <li>含下切海灘來回約 <b>5 小時以上</b>；只到觀景點單程約 1.5 小時</li>
+        </ul>
+        <div class="note tip"><b>安全：</b>前段木棧道窄、後段陡需手腳並用，必穿抓地登山鞋；起霧請勿上山。</div>
+        <div class="stay">🛏 住宿：<b>羅浮敦</b>（4/4 晚）<div class="maps"><details class="map"><summary>📍 住宿：羅浮敦 Svolvær</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Svolv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="住宿：羅浮敦 Svolvær"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Lofoten Rorbu Lodge</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.1509575%2C13.5115641&output=embed" allowfullscreen title="Lofoten Rorbu Lodge"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">68.5°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/5</span><span class="wd">一</span><span class="dayno">DAY 10</span></div>
+        <h3>離開羅浮敦 ✈ 卑爾根</h3>
+        <ul>
+          <li>開車前往 <b>Evenes 機場（EVE）</b>還車——自西部出發實際車程 <b>4.5–5 小時</b><div class="maps"><details class="map"><summary>📍 Evenes 機場 EVE</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Evenes+Airport%2C+Norway&output=embed" allowfullscreen title="Evenes 機場 EVE"></iframe></details></div></li>
+          <li><span class="t">17:15</span>EVE ✈ 卑爾根 <span class="t">20:30</span>抵達（多為經奧斯陸／波多轉機）<div class="maps"><details class="map"><summary>📍 卑爾根機場 Flesland</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Bergen+Airport+Flesland%2C+Norway&output=embed" allowfullscreen title="卑爾根機場 Flesland"></iframe></details></div></li>
+        </ul>
+        <div class="note warn"><b>⚠ 時間管理：</b>最晚 <b>10:00–10:30</b> 就要從住宿出發，中途不宜久留。並請確認機票轉機安排與行李是否直掛。</div>
+        <div class="stay">🛏 住宿：<b>卑爾根</b>（1/2 晚）<div class="maps"><details class="map"><summary>📍 住宿：卑爾根</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Bergen%2C+Norway&output=embed" allowfullscreen title="住宿：卑爾根"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：City Centrum Villa Apartments</summary><iframe loading="lazy" src="https://www.google.com/maps?q=60.3896854%2C5.339955&output=embed" allowfullscreen title="City Centrum Villa Apartments"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">60.4°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/6</span><span class="wd">二</span><span class="dayno">DAY 11</span></div>
+        <h3>卑爾根世界遺產</h3>
+        <ul>
+          <li><b>Bryggen 布呂根</b>彩色木屋碼頭（UNESCO）<div class="maps"><details class="map"><summary>📍 Bryggen 布呂根</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Bryggen%2C+Bergen%2C+Norway&output=embed" allowfullscreen title="Bryggen 布呂根"></iframe></details></div></li>
+          <li>魚市場、纜車上 Fløyen 山看城市全景<div class="maps"><details class="map"><summary>📍 卑爾根魚市場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fisketorget%2C+Bergen%2C+Norway&output=embed" allowfullscreen title="卑爾根魚市場"></iframe></details><details class="map"><summary>📍 Fløyen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fl%C3%B8yen%2C+Bergen%2C+Norway&output=embed" allowfullscreen title="Fløyen"></iframe></details></div></li>
+        </ul>
+        <div class="stay">🛏 住宿：<b>卑爾根</b>（2/2 晚）<div class="maps"><details class="map"><summary>📍 住宿：卑爾根</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Bergen%2C+Norway&output=embed" allowfullscreen title="住宿：卑爾根"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：City Centrum Villa Apartments</summary><iframe loading="lazy" src="https://www.google.com/maps?q=60.3896854%2C5.339955&output=embed" allowfullscreen title="City Centrum Villa Apartments"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">60.9°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/7</span><span class="wd">三</span><span class="dayno">DAY 12</span></div>
+        <h3>挪威縮影 · 第一段</h3>
+        <ul>
+          <li><span class="t">08:29</span>Bergen 出發，火車至 Myrdal<div class="maps"><details class="map"><summary>📍 Myrdal 車站</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Myrdal+Station%2C+Norway&output=embed" allowfullscreen title="Myrdal 車站"></iframe></details></div></li>
+          <li>轉乘 <b>Flåmsbana 高山鐵路</b>下切峽灣抵 Flåm<div class="maps"><details class="map"><summary>📍 Flåm</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fl%C3%A5m%2C+Norway&output=embed" allowfullscreen title="Flåm"></iframe></details></div></li>
+          <li><b>備案路線（Norway in a Nutshell 經典版）：</b>Bergen → Voss（火車約 1 小時 20 分）→ Gudvangen（巴士約 1.5 小時，沿途峽灣髮夾彎景色）→ Flåm（遊船約 2 小時）<div class="maps"><details class="map"><summary>📍 Voss</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Voss%2C+Norway&output=embed" allowfullscreen title="Voss"></iframe></details><details class="map"><summary>📍 Gudvangen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Gudvangen%2C+Norway&output=embed" allowfullscreen title="Gudvangen"></iframe></details></div></li>
+        </ul>
+        <div class="note tip"><b>路線選擇：</b>主行程採 Flåmsbana 高山鐵路直達版；清單中另記錄了 Bergen→Voss→Gudvangen→Flåm 的巴士+遊船經典版本，兩者都能欣賞峽灣風光，擇一即可、不需重複安排。</div>
+        <div class="stay">🛏 住宿：<b>Flåm 弗洛姆</b>（峽灣小鎮過夜）<div class="maps"><details class="map"><summary>📍 住宿：Flåm</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fl%C3%A5m%2C+Norway&output=embed" allowfullscreen title="住宿：Flåm"></iframe></details><details class="map hotel"><summary>🏨 實際訂房：Brekke Gard Apartments & Hostel</summary><iframe loading="lazy" src="https://www.google.com/maps?q=60.8571014%2C7.10531&output=embed" allowfullscreen title="Brekke Gard Apartments & Hostel"></iframe></details><details class="map hotel pending"><summary>🏨 待確認：清單另一筆同日期未命名住宿</summary><iframe loading="lazy" src="https://www.google.com/maps?q=60.8633236%2C7.1162328&output=embed" allowfullscreen title="清單另一筆同日期未命名住宿"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">60.9°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/8</span><span class="wd">四</span><span class="dayno">DAY 13</span></div>
+        <h3>挪威縮影 · 第二段 → 奧斯陸</h3>
+        <ul>
+          <li>上午建議加排 <b>Nærøyfjord 世界遺產峽灣遊船</b>（約 2 小時起）<div class="maps"><details class="map"><summary>📍 Nærøyfjord 峽灣</summary><iframe loading="lazy" src="https://www.google.com/maps?q=N%C3%A6r%C3%B8yfjord%2C+Norway&output=embed" allowfullscreen title="Nærøyfjord 峽灣"></iframe></details><details class="map"><summary>📍 Flåm 渡輪碼頭</summary><iframe loading="lazy" src="https://www.google.com/maps?q=60.863852%2C7.118368&output=embed" allowfullscreen title="Flåm 渡輪碼頭"></iframe></details></div></li>
+          <li><span class="t">12:10</span>Flåm 出發（火車）<span class="t">19:05</span>抵達奧斯陸<div class="maps"><details class="map"><summary>📍 奧斯陸 Oslo</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Oslo%2C+Norway&output=embed" allowfullscreen title="奧斯陸 Oslo"></iframe></details></div></li>
+        </ul>
+        <div class="stay">🛏 住宿：<b>奧斯陸</b><div class="maps"><details class="map"><summary>📍 住宿：奧斯陸</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Oslo%2C+Norway&output=embed" allowfullscreen title="住宿：奧斯陸"></iframe></details></div></div>
+      </div>
+    </div>
+
+    <div class="day no">
+      <div class="lat-tag"><b class="num">59.9°</b>N</div>
+      <div class="card">
+        <div class="head"><span class="d">10/9</span><span class="wd">五</span><span class="dayno">DAY 14</span></div>
+        <h3>奧斯陸 ✈ 台灣</h3>
+        <ul>
+          <li><span class="t">10:45</span>抵達機場（緩衝充足 ✓）<div class="maps"><details class="map"><summary>📍 奧斯陸機場 Gardermoen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Oslo+Airport%2C+Gardermoen%2C+Norway&output=embed" allowfullscreen title="奧斯陸機場 Gardermoen"></iframe></details></div></li>
+          <li><span class="t">13:45</span>起飛返台</li>
+        </ul>
+        <div class="note ok">旅程結束——帶著極光、峽灣與紅色小屋的記憶回家 🌌</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="check">
+  <div class="check-card">
+    <h2>行前必辦 · 三件不能碰運氣的預訂</h2>
+    <p class="lead">以下班次稀少、無法現場候補，請盡早完成預訂：</p>
+    <ol>
+      <li><b>Visit Abisko 機場接駁</b>（9/29）— 基律納機場直達 Abisko 住宿門口，選航班落地 30 分鐘後的班次。</li>
+      <li><b>甲租乙還租車</b>（10/1 – 10/5）— Narvik 取車／Evenes 機場還車，確認營業時間與異地還車費。</li>
+      <li><b>EVE → Bergen 機票</b>（10/5）— 直飛班次極少，確認轉機點與行李直掛；同步預訂 10/8 的 Nærøyfjord 遊船。</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  2026.09.25 – 10.09 · 丹麥 🇩🇰 瑞典 🇸🇪 挪威 🇳🇴 · 祝旅途平安順風
+</footer>
+
+</body>
+</html>
