@@ -146,17 +146,13 @@
   }
   .card h3{font-size:17px;font-weight:700;margin-bottom:8px;}
   .day-photo{
-    position:relative;height:180px;border-radius:12px;overflow:hidden;
-    margin-bottom:12px;background-size:cover;background-position:center;
+    height:180px;border-radius:12px;overflow:hidden;
+    margin-bottom:8px;background-size:cover;background-position:center;
     background-color:var(--fjord);
   }
-  .day-photo::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(14,25,36,.05) 45%,rgba(14,25,36,.85) 100%);
-  }
-  .day-photo-cap{position:absolute;left:14px;right:14px;bottom:10px;z-index:1;}
-  .day-photo-cap h3{color:#fff;margin-bottom:2px;text-shadow:0 1px 8px rgba(0,0,0,.5);}
-  .day-photo-cap small{color:#D7E4EC;font-size:11.5px;letter-spacing:.06em;}
+  .day-photo-cap{margin-bottom:10px;}
+  .day-photo-cap h3{color:var(--fjord);margin-bottom:2px;}
+  .day-photo-cap small{color:var(--slate);font-size:11.5px;letter-spacing:.06em;}
   @media print{.day-photo{display:none;}}
   .card ul{list-style:none;font-size:14.5px;color:#33475A;}
   .card ul li{padding:3px 0 3px 20px;position:relative;}
@@ -358,7 +354,8 @@
       <div class="lat-tag"><b class="num">55.7°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">9/25–26</span><span class="wd">五 → 六</span><span class="dayno">DAY 1</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Copenhagen_banner_Nyhavn_canal.jpg?width=1400')"><div class="day-photo-cap"><h3>台灣 ✈ 哥本哈根</h3><small>📷 新港 Nyhavn，哥本哈根</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Copenhagen_banner_Nyhavn_canal.jpg?width=1400')"></div>
+        <div class="day-photo-cap"><h3>台灣 ✈ 哥本哈根</h3><small>📷 新港 Nyhavn，哥本哈根</small></div>
         <ul>
           <li><span class="t">16:10</span>9/25 台灣起飛<div class="maps"><details class="map"><summary>📍 桃園國際機場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Taiwan+Taoyuan+International+Airport&output=embed" allowfullscreen title="桃園國際機場"></iframe></details></div></li>
           <li><span class="t">07:25</span>抵達哥本哈根，<span class="t">09:25</span>出關<div class="maps"><details class="map"><summary>📍 哥本哈根機場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Copenhagen+Airport%2C+Denmark&output=embed" allowfullscreen title="哥本哈根機場"></iframe></details></div></li>
@@ -382,7 +379,8 @@
       <div class="lat-tag"><b class="num">56.6°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">9/27</span><span class="wd">日</span><span class="dayno">DAY 2</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/IKEA-Museum-August-2016.jpg?width=1400')"><div class="day-photo-cap"><h3>IKEA 發源地 Älmhult → 斯德哥爾摩</h3><small>📷 IKEA 博物館，Älmhult</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/IKEA-Museum-August-2016.jpg?width=1400')"></div>
+        <div class="day-photo-cap"><h3>IKEA 發源地 Älmhult → 斯德哥爾摩</h3><small>📷 IKEA 博物館，Älmhult</small></div>
         <ul>
           <li>上午搭火車前往 Älmhult（約 2.5 小時），參觀 <b>IKEA 博物館</b>（週日 10:00–18:00）<div class="maps"><details class="map"><summary>📍 IKEA 博物館 Älmhult</summary><iframe loading="lazy" src="https://www.google.com/maps?q=IKEA+Museum%2C+%C3%84lmhult%2C+Sweden&output=embed" allowfullscreen title="IKEA 博物館 Älmhult"></iframe></details></div></li>
           <li><span class="t">17:03</span>搭火車前往斯德哥爾摩</li>
@@ -398,7 +396,8 @@
       <div class="lat-tag"><b class="num">59.3°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">9/28</span><span class="wd">一</span><span class="dayno">DAY 3</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Stortorget_i_Gamla_Stan_i_Stockholm.JPG?width=1200')"><div class="day-photo-cap"><h3>斯德哥爾摩一整天</h3><small>📷 Stortorget 大廣場，Gamla Stan</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Stortorget_i_Gamla_Stan_i_Stockholm.JPG?width=1200')"></div>
+        <div class="day-photo-cap"><h3>斯德哥爾摩一整天</h3><small>📷 Stortorget 大廣場，Gamla Stan</small></div>
         <ul>
           <li>老城 Gamla Stan、皇宮、市政廳<div class="maps"><details class="map"><summary>📍 Gamla Stan 老城</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Gamla+Stan%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="Gamla Stan 老城"></iframe></details><details class="map"><summary>📍 皇宮 Royal Palace</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kungliga+slottet%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="皇宮 Royal Palace"></iframe></details><details class="map"><summary>📍 市政廳</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Stockholms+stadshus%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="市政廳"></iframe></details></div></li>
           <li>推薦：瓦薩沉船博物館、地鐵藝術站<div class="maps"><details class="map"><summary>📍 瓦薩沉船博物館</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Vasamuseet%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="瓦薩沉船博物館"></iframe></details><details class="map"><summary>📍 地鐵藝術站 T-Centralen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=T-Centralen+metro+station%2C+Stockholm%2C+Sweden&output=embed" allowfullscreen title="地鐵藝術站 T-Centralen"></iframe></details></div></li>
@@ -412,7 +411,8 @@
       <div class="lat-tag"><b class="num">68.4°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">9/29</span><span class="wd">二</span><span class="dayno">DAY 4</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Abisko_nationalpark_i_gryningsljuset.jpg?width=1200')"><div class="day-photo-cap"><h3>飛越北極圈：基律納 → Abisko</h3><small>📷 Abisko 國家公園晨曦</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Abisko_nationalpark_i_gryningsljuset.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>飛越北極圈：基律納 → Abisko</h3><small>📷 Abisko 國家公園晨曦</small></div>
         <ul>
           <li><span class="t">05:30</span> 起床，<span class="t">06:00</span> 搭車前往 Arlanda 機場（車程約 30–40 分鐘）<div class="maps"><details class="map"><summary>📍 Arlanda 機場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Arlanda+Airport%2C+Sweden&output=embed" allowfullscreen title="Arlanda 機場"></iframe></details></div></li>
           <li><span class="t">08:30</span> ARN ✈ 基律納 KRN（約 1.5 小時），<span class="t">10:05</span> 抵達<div class="maps"><details class="map"><summary>📍 基律納機場 Kiruna Airport</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kiruna+Airport%2C+Sweden&output=embed" allowfullscreen title="基律納機場 Kiruna Airport"></iframe></details></div></li>
@@ -430,7 +430,8 @@
       <div class="lat-tag"><b class="num">68.4°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">9/30</span><span class="wd">三</span><span class="dayno">DAY 5</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Aurora_in_Abisko_near_Tornetr%C3%A4sk.jpg?width=1200')"><div class="day-photo-cap"><h3>國王小徑 Kungsleden 健行</h3><small>📷 Abisko 極光，Torneträsk 湖畔</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Aurora_in_Abisko_near_Tornetr%C3%A4sk.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>國王小徑 Kungsleden 健行</h3><small>📷 Abisko 極光，Torneträsk 湖畔</small></div>
         <ul>
           <li>從 STF Abisko Turiststation 出發走國王小徑北段<div class="maps"><details class="map"><summary>📍 STF Abisko Turiststation</summary><iframe loading="lazy" src="https://www.google.com/maps?q=STF+Abisko+Turiststation%2C+Abisko%2C+Sweden&output=embed" allowfullscreen title="STF Abisko Turiststation"></iframe></details><details class="map"><summary>📍 國王小徑 Kungsleden</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kungsleden%2C+Abisko%2C+Sweden&output=embed" allowfullscreen title="國王小徑 Kungsleden"></iframe></details></div></li>
           <li>晚上可搭纜車上 Aurora Sky Station 追極光（視營運狀況）<div class="maps"><details class="map"><summary>📍 Aurora Sky Station</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Aurora+Sky+Station%2C+Abisko%2C+Sweden&output=embed" allowfullscreen title="Aurora Sky Station"></iframe></details></div></li>
@@ -454,7 +455,8 @@
       <div class="lat-tag"><b class="num">68.2°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/1</span><span class="wd">四</span><span class="dayno">DAY 6</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Ofotfjorden%2C_Narvik.JPG?width=1200')"><div class="day-photo-cap"><h3>極地景觀列車 → 自駕進羅浮敦</h3><small>📷 Ofotfjorden 峽灣，Narvik</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Ofotfjorden%2C_Narvik.JPG?width=1200')"></div>
+        <div class="day-photo-cap"><h3>極地景觀列車 → 自駕進羅浮敦</h3><small>📷 Ofotfjorden 峽灣，Narvik</small></div>
         <ul>
           <li><span class="t">11:02</span> 搭乘極地景觀列車 Abisko → <b>Narvik</b>（約 1.5 小時，最美路段在挪威側），<span class="t">12:37</span> 抵達<div class="maps"><details class="map"><summary>📍 Narvik</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Narvik%2C+Norway&output=embed" allowfullscreen title="Narvik"></iframe></details><details class="map"><summary>📍 Narvik 火車站／租車點</summary><iframe loading="lazy" src="https://www.google.com/maps?q=68.4416002%2C17.4413025&output=embed" allowfullscreen title="Narvik 火車站／租車點"></iframe></details></div></li>
           <li><span class="t">13:37</span> Narvik 搭 <b>Flybussen（FB82）</b>前往 Evenes 機場（EVE），<span class="t">14:43</span> 抵達<div class="maps"><details class="map"><summary>📍 Evenes 機場 EVE</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Evenes+Airport%2C+Norway&output=embed" allowfullscreen title="Evenes 機場 EVE"></iframe></details></div></li>
@@ -471,7 +473,8 @@
       <div class="lat-tag"><b class="num">68.2°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/2</span><span class="wd">五</span><span class="dayno">DAY 7</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Stade_d%27Henningsv%C3%A6r.jpg?width=1200')"><div class="day-photo-cap"><h3>羅浮敦中部</h3><small>📷 Henningsvær 海上足球場</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Stade_d%27Henningsv%C3%A6r.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>羅浮敦中部</h3><small>📷 Henningsvær 海上足球場</small></div>
         <ul>
           <li>Henningsvær <b>海上足球場</b>（空拍名景）<div class="maps"><details class="map"><summary>📍 Henningsvær 海上足球場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Henningsv%C3%A6r+Stadion%2C+Henningsv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="Henningsvær 海上足球場"></iframe></details></div></li>
           <li>中部漁村巡禮：Kabelvåg、Henningsvær 老街<div class="maps"><details class="map"><summary>📍 Kabelvåg</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kabelv%C3%A5g%2C+Norway&output=embed" allowfullscreen title="Kabelvåg"></iframe></details><details class="map"><summary>📍 Henningsvær 老街</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Henningsv%C3%A6r%2C+Norway&output=embed" allowfullscreen title="Henningsvær 老街"></iframe></details></div></li>
@@ -485,7 +488,8 @@
       <div class="lat-tag"><b class="num">67.9°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/3</span><span class="wd">六</span><span class="dayno">DAY 8</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Reine_Lofoten_2009.JPG?width=1200')"><div class="day-photo-cap"><h3>群島最西端：Å 鎮與明信片景點</h3><small>📷 Reine，羅浮敦</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Reine_Lofoten_2009.JPG?width=1200')"></div>
+        <div class="day-photo-cap"><h3>群島最西端：Å 鎮與明信片景點</h3><small>📷 Reine，羅浮敦</small></div>
         <ul>
           <li><b>Å 鎮</b>——公路的盡頭、羅浮敦最西村落<div class="maps"><details class="map"><summary>📍 Å 鎮</summary><iframe loading="lazy" src="https://www.google.com/maps?q=%C3%85+i+Lofoten%2C+Norway&output=embed" allowfullscreen title="Å 鎮"></iframe></details></div></li>
           <li>Reine / Hamnøy <b>明信片紅屋景點</b>、Sakrisøy 黃屋<div class="maps"><details class="map"><summary>📍 Reine</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Reine%2C+Norway&output=embed" allowfullscreen title="Reine"></iframe></details><details class="map"><summary>📍 Hamnøy</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Hamn%C3%B8y%2C+Norway&output=embed" allowfullscreen title="Hamnøy"></iframe></details><details class="map"><summary>📍 Sakrisøy</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Sakris%C3%B8y%2C+Norway&output=embed" allowfullscreen title="Sakrisøy"></iframe></details></div></li>
@@ -500,7 +504,8 @@
       <div class="lat-tag"><b class="num">68.1°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/4</span><span class="wd">日</span><span class="dayno">DAY 9</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Ryten_Kvalvika_Lofoten_tunliweb.jpg?width=1200')"><div class="day-photo-cap"><h3>Ryten 健行 & Kvalvika 海灘</h3><small>📷 Ryten 觀景台俯瞰 Kvalvika</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Ryten_Kvalvika_Lofoten_tunliweb.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>Ryten 健行 & Kvalvika 海灘</h3><small>📷 Ryten 觀景台俯瞰 Kvalvika</small></div>
         <ul>
           <li>Fredvang 起登，山頂俯瞰 Kvalvika 海灘的碧綠海水<div class="maps"><details class="map"><summary>📍 Fredvang</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fredvang%2C+Norway&output=embed" allowfullscreen title="Fredvang"></iframe></details><details class="map"><summary>📍 Ryten</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Ryten%2C+Norway&output=embed" allowfullscreen title="Ryten"></iframe></details><details class="map"><summary>📍 Kvalvika 海灘</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Kvalvika+Beach%2C+Norway&output=embed" allowfullscreen title="Kvalvika 海灘"></iframe></details></div></li>
           <li>含下切海灘來回約 <b>5 小時以上</b>；只到觀景點單程約 1.5 小時</li>
@@ -516,7 +521,8 @@
       <div class="lat-tag"><b class="num">68.5°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/5</span><span class="wd">一</span><span class="dayno">DAY 10</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Bryggen_Bergen.jpg?width=1200')"><div class="day-photo-cap"><h3>離開羅浮敦 ✈ 卑爾根</h3><small>📷 Bryggen 布呂根，卑爾根</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Bryggen_Bergen.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>離開羅浮敦 ✈ 卑爾根</h3><small>📷 Bryggen 布呂根，卑爾根</small></div>
         <ul>
           <li>開車前往 <b>Evenes 機場（EVE）</b>——住宿距機場約 <b>2 小時</b>車程，<span class="t">11:00</span> 還車<div class="maps"><details class="map"><summary>📍 Evenes 機場 EVE</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Evenes+Airport%2C+Norway&output=embed" allowfullscreen title="Evenes 機場 EVE"></iframe></details></div></li>
           <li><span class="t">12:00</span> 抵達機場航廈</li>
@@ -532,7 +538,8 @@
       <div class="lat-tag"><b class="num">60.4°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/6</span><span class="wd">二</span><span class="dayno">DAY 11</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B8yen_view_on_Bergen_edit.jpg?width=1200')"><div class="day-photo-cap"><h3>卑爾根世界遺產</h3><small>📷 Fløyen 俯瞰卑爾根</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B8yen_view_on_Bergen_edit.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>卑爾根世界遺產</h3><small>📷 Fløyen 俯瞰卑爾根</small></div>
         <ul>
           <li><b>Bryggen 布呂根</b>彩色木屋碼頭（UNESCO）<div class="maps"><details class="map"><summary>📍 Bryggen 布呂根</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Bryggen%2C+Bergen%2C+Norway&output=embed" allowfullscreen title="Bryggen 布呂根"></iframe></details></div></li>
           <li>魚市場、纜車上 Fløyen 山看城市全景<div class="maps"><details class="map"><summary>📍 卑爾根魚市場</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fisketorget%2C+Bergen%2C+Norway&output=embed" allowfullscreen title="卑爾根魚市場"></iframe></details><details class="map"><summary>📍 Fløyen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Fl%C3%B8yen%2C+Bergen%2C+Norway&output=embed" allowfullscreen title="Fløyen"></iframe></details></div></li>
@@ -546,7 +553,8 @@
       <div class="lat-tag"><b class="num">60.9°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/7</span><span class="wd">三</span><span class="dayno">DAY 12</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/N%C3%A6r%C3%B8yfjord%2C_Norway_%2829679189382%29.jpg?width=1200')"><div class="day-photo-cap"><h3>挪威縮影 · 第一段</h3><small>📷 Nærøyfjord 納柔依峽灣</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/N%C3%A6r%C3%B8yfjord%2C_Norway_%2829679189382%29.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>挪威縮影 · 第一段</h3><small>📷 Nærøyfjord 納柔依峽灣</small></div>
         <ul>
           <li><span class="t">08:29</span> Bergen → <span class="t">09:46</span> Voss（Vy 火車）<div class="maps"><details class="map"><summary>📍 Voss</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Voss%2C+Norway&output=embed" allowfullscreen title="Voss"></iframe></details></div><div class="maps"><a class="book" href="https://www.vy.no/en" target="_blank" rel="noopener">🔗 vy.no 訂票</a></div></li>
           <li><span class="t">10:10</span> Voss → <span class="t">11:10</span> Gudvangen（巴士）<div class="maps"><details class="map"><summary>📍 Gudvangen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Gudvangen%2C+Norway&output=embed" allowfullscreen title="Gudvangen"></iframe></details></div><div class="maps"><a class="book" href="https://www.norwaysbest.com" target="_blank" rel="noopener">🔗 norwaysbest.com 訂票</a></div></li>
@@ -562,7 +570,8 @@
       <div class="lat-tag"><b class="num">60.9°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/8</span><span class="wd">四</span><span class="dayno">DAY 13</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Myrdal_Station_with_Fl%C3%A5msbana_train.jpg?width=1200')"><div class="day-photo-cap"><h3>挪威縮影 · 第二段 → 奧斯陸</h3><small>📷 Myrdal 車站與 Flåmsbana 列車</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Myrdal_Station_with_Fl%C3%A5msbana_train.jpg?width=1200')"></div>
+        <div class="day-photo-cap"><h3>挪威縮影 · 第二段 → 奧斯陸</h3><small>📷 Myrdal 車站與 Flåmsbana 列車</small></div>
         <ul>
           <li><span class="t">12:10</span> Flåm → <span class="t">13:08</span> Myrdal（Vy 火車）<div class="maps"><details class="map"><summary>📍 Myrdal 車站</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Myrdal+Station%2C+Norway&output=embed" allowfullscreen title="Myrdal 車站"></iframe></details></div></li>
           <li><span class="t">13:26</span> Myrdal → <span class="t">19:05</span> 抵達 Oslo（Vy 火車）<div class="maps"><details class="map"><summary>📍 奧斯陸 Oslo</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Oslo%2C+Norway&output=embed" allowfullscreen title="奧斯陸 Oslo"></iframe></details></div><div class="maps"><a class="book" href="https://www.vy.no/en" target="_blank" rel="noopener">🔗 vy.no 訂票</a></div></li>
@@ -577,7 +586,8 @@
       <div class="lat-tag"><b class="num">59.9°</b>N</div>
       <div class="card">
         <div class="head"><span class="d">10/9</span><span class="wd">五</span><span class="dayno">DAY 14</span></div>
-        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Oslo_Opera_House_01.JPG?width=1200')"><div class="day-photo-cap"><h3>奧斯陸 ✈ 台灣</h3><small>📷 Oslo Opera House，奧斯陸</small></div></div>
+        <div class="day-photo" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Oslo_Opera_House_01.JPG?width=1200')"></div>
+        <div class="day-photo-cap"><h3>奧斯陸 ✈ 台灣</h3><small>📷 Oslo Opera House，奧斯陸</small></div>
         <ul>
           <li><span class="t">10:45</span>抵達機場（緩衝充足 ✓）<div class="maps"><details class="map"><summary>📍 奧斯陸機場 Gardermoen</summary><iframe loading="lazy" src="https://www.google.com/maps?q=Oslo+Airport%2C+Gardermoen%2C+Norway&output=embed" allowfullscreen title="奧斯陸機場 Gardermoen"></iframe></details></div></li>
           <li><span class="t">13:45</span>起飛返台</li>
